@@ -10,7 +10,7 @@ The Notes App is a full-featured MERN stack application designed for managing pe
 ![Another User Home Page](screenshots/anotherGuyHomePage.png)
 
 ### Sign Up Page
-![Sign up page](screenshots/signUpPage.png)
+![Sign up page](screenshots/signupPage.png)
 
 ## Features
 
