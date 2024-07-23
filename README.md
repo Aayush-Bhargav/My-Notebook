@@ -9,9 +9,11 @@ The Notes App is a full-featured MERN stack application designed for managing pe
 ### Another User's Home Page
 ![Another User Home Page](screenshots/anotherGuyHomePage.png)
 
+### Edit Note
+![edit note](screenshots/editNote.png)
+
 ### Sign Up Page
 ![Sign up page](screenshots/signupPage.png)
-
 
 ### Login Page
 ![Login page](screenshots/loginPage.png)
