@@ -6,6 +6,9 @@ The Notes App is a full-featured MERN stack application designed for managing pe
 ### Home Page
 ![Home Page](screenshots/homePage.png)
 
+### Another User's Home Page
+![Another User Home Page](screenshots/anotherGuyHomePage.png)
+
 ## Features
 
 - **User Authentication**: Secure login system requiring users to provide a valid email and password. Authentication ensures that only authorized users can access and manage their notes.
