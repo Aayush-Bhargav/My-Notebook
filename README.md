@@ -21,6 +21,9 @@ The Notes App is a full-featured MERN stack application designed for managing pe
 ### Security Against Invalid Login
 ![security](screenshots/security.png)
 
+### Mongo DB
+![mongoDB](screenshots/mongoDB.png)
+
 ## Features
 
 - **User Authentication**: Secure login system requiring users to provide a valid email and password. Authentication ensures that only authorized users can access and manage their notes.
