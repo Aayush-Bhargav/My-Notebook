@@ -7,13 +7,17 @@ const NoteState = (props) => {
     const host = "http://localhost:5000";
     const [notes, setNotes] = useState([]);
     const [note, setNote] = useState({});
+    const [user, setUser] = useState('');
     const [display, setDisplay] = useState(true);
     const [alert, setAlert] = useState({
         msg: "",
         color: ''
     });
+    const setTheUser=(user)=>{ //function to set the current user who is logged in
+        setUser(user);
+    }
     const [showAlert, setShowAlert] = useState(false);
-    const displayAlert = (msg, color) => {
+    const displayAlert = (msg, color) => { //function to display a self dismissing alert
         setShowAlert(true);
         setAlert({
             msg: msg,
@@ -27,7 +31,7 @@ const NoteState = (props) => {
     const handleDisplay = () => {
         setDisplay(!display);
     }
-    const setTheNote = (id) => {
+    const setTheNote = (id) => { //function to set the note
         // console.log(typeof(id));
         notes.forEach((note) => {
             // console.log("id of note:"+typeof(note._id));
@@ -36,24 +40,9 @@ const NoteState = (props) => {
             }
         })
     }
-    // const [state, setState] = useState({
-    //     name: "Aayush",
-    //     age: 10
-    // })
-    // const update = () => {
-    //     setTimeout(() => {
-    //         setState({
-    //             name: "Watson",
-    //             age: "33"
-    //         });
-    //     }, 1500)
-
-    // }
-
-
     async function fetchNotes() {//function to fetch notes USING our backend api
         try {
-            // console.log('Hey i am here!');
+            console.log('Hey i am here!');
             const response = await axios.get(`${host}/api/notes/fetchallnotes`, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -61,15 +50,17 @@ const NoteState = (props) => {
                 }
             });
 
-            console.log("response:" + response.status);
+            console.log("in fetch notes, response:" + response.status);
             const arr = response.data;
             // for (let i = 0; i < arr.length; i++)
             //     console.log(arr[i])
             console.log(arr)
             setNotes(arr);
             console.log(notes);
+            return true;
         } catch (error) {
             console.error('Error posting data:', error);
+            return false;
         }
     }
     async function addNoteToDatabase(title, description, tag) {//function to add a note USING our backend api
@@ -88,7 +79,7 @@ const NoteState = (props) => {
     }
     //funtion to Add a Note
     const addNote = async (title, description, tag) => {
-        if (tag === '')
+        if (tag === '') //if tag is not specified , then give the general tag
             tag = 'General'
         const note = {
             "_id": "668536fc54ba76e9f1c5d705",
@@ -156,7 +147,7 @@ const NoteState = (props) => {
         setNotes(notes);
     }
     return (
-        <NoteContext.Provider value={{ notes: notes, fetchNotes, setNotes, addNote, deleteNote, editNote, setTheNote, note: note, handleDisplay, display: display, alert, showAlert, displayAlert }}>
+        <NoteContext.Provider value={{ notes: notes, fetchNotes, setNotes, addNote, deleteNote, editNote, setTheNote,setTheUser, note: note, handleDisplay, display: display, alert, showAlert, user,displayAlert }}>
             {props.children}
         </NoteContext.Provider>
     )
