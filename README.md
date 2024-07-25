@@ -46,6 +46,7 @@ Install the packages for the back end using:
 cd My-Notebook/backend
 npm install
 ```
+## Launch the App
 Launch the backend server:
 ```
 nodemon index.js
