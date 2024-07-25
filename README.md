@@ -31,6 +31,12 @@ The Notes App is a full-featured MERN stack application designed for managing pe
 ### Mobile View 1
 ![mobile view 1](screenshots/mobileView1.png)
 
+## Install
+- Download all the files.
+- Run 'cd my-notebook' and then 'npm install' and then 'npm run start' to start the frontend.
+- Run 'cd my-notebook/backend' and then 'npm install' and then 'nodemon index.js' to get the server up and running.
+- Make sure mongo DB is also installed in your computer.
+  
 ## Features
 
 - **User Authentication**: Secure login system requiring users to provide a valid email and password. Authentication ensures that only authorized users can access and manage their notes.
@@ -39,11 +45,7 @@ The Notes App is a full-featured MERN stack application designed for managing pe
 - **Responsive UI**: The application features a clean and responsive interface for managing notes efficiently.
 - **Dynamic Note Display**: The app dynamically displays notes, allowing users to view all their notes or manage them as needed.
 
-## How to Run
-- Download all the files.
-- Run 'cd my-notebook' and then 'npm install' and then 'npm run start' to start the frontend.
-- Run 'cd my-notebook/backend' and then 'npm install' and then 'nodemon index.js' to get the server up and running.
-- Make sure mongo DB is also installed in your computer.
+
 
 ## Technologies Used
 
