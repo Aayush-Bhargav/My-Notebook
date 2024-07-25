@@ -11,6 +11,12 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
   
 }
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 27px;
+  font-style: normal;
+}
 
 header {
   background-color: #f5ba13;
@@ -35,50 +41,261 @@ footer {
 footer p {
   color: #999494;
 }
-/* .note {
-  background: #fff;
-  border-radius: 7px;
-  box-shadow: 0 2px 5px #ccc;
-  padding: 10px;
-  width: 240px;
-  margin: 16px;
-  float: left;
+.previewTitle {
+  text-align: center;
+  background: linear-gradient(90deg, #8684ec 0, #ff60f5 50%, #ffb68d 100%);
+  margin-bottom: 0px;
+}
+.previewContainer {
+  min-height: 15vh;
+  padding-top: 20px;
+  padding-bottom: 40px;
+
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #6563FF; */
+  background: linear-gradient(90deg, #8684ec 0, #ff60f5 50%, #ffb68d 100%);
+  /* background: linear-gradient(to right, #5e70ff, #6967fa); */
 }
-
-.note-content {
-  flex-grow: 1;
+.previewContainer img{
+  width: 30%;
+  margin-left: 20px;
 }
-
-.note-buttons {
+.reg-container {
+  position: relative;
+  width: 50%;
   display: flex;
-  justify-content: flex-end;
+  background: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
-.note h1 {
-  font-size: 1.1em;
-  margin-bottom: 6px;
-  margin-left: 3px;
+.login-container {
+  position: relative;
+  width: 33%;
+  display: flex;
+  margin: auto;
+  background: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
-.note p {
-  font-size: 1.1em;
-  margin-bottom: 10px;
-  margin-left: 3px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+.reg-container .form {
+  padding: 30px;
 }
-
-.note button {
-  margin-right: 5px;
-  color: #f5ba13;
-  background-color: white;
+.login-container .form {
+  padding: 40px;
+}
+.login-signup-holder button:hover{
+  background-color: #5f14a0;
+}
+.buttonStyle{
   border: none;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
+  outline:none;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  background-color: #7e22ce;
+  color:white;
+
+}
+.open-sans-bold {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+.open-sans-less-bold {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+.buttonStyle:hover{
+ background-color: #5f14a0;
+}
+.title {
+  position: relative;
+}
+.title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 4px;
+  width: 50px;
+  /* background-color: #6563FF; */
+  background: linear-gradient(90deg, #8684ec 0, #ff60f5 50%, #ffb68d 100%);
+  /* background: linear-gradient(to right, #5e70ff, #6967fa); */
+  border-radius: 25px;
+}
+.input-field {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 50px;
+  position: relative;
+
+  /* background-color: red;
+    width: 100%; */
+}
+.input-field input {
+  border: none;
+  height: 100%;
+  width: 100%;
+  padding: 0 35px;
+  font-size: 16px;
   outline: none;
+  border-bottom: 2px solid #ccc;
+  border-top: 2px solid transparent;
+  border-radius: 0px;
+  transition: all 0.2s ease-in;
+  border-bottom-color: #7e22ce;
+}
+input[type="file"] {
+  display: none;
+  border-bottom-color: #7e22ce;
+}
+.custom-file-input {
+  background-color: white;
+  border-bottom: 2px solid #7e22ce;
+  color: black;
+  min-height: 100%;
+  border-radius: 0px;
+  width: 100%;
+  padding-top: 15px;
+}
+
+.custom-file-input span {
+  padding-left: 10px;
+  font-size: 16px;
+}
+.custom-file-input p {
+  padding-left: 10px;
+  font-size: 16px;
+}
+.custom-file-input .icon {
+  color: #7e22ce;
+  top: 0px;
+}
+.displayOffer {
+  width: 60%;
+}
+.icon {
+  position: relative;
+  top: -37px;
+  color: #999;
+  transition: all 0.2s ease;
+  color: #7e22ce;
+}
+.eye {
+  position: relative;
+  top: -37px;
+  left: 88%;
+  color: #999;
+  transition: all 0.2s ease;
+}
+.input-field input:is(:focus) {
+  border-bottom-color: #5f14a0;
+}
+.input-field input:is(:focus) ~ .icon {
+  color: #320558;
+}
+.input-field input:is(:focus) ~ .eye {
+  color: #320558;
+}
+.input-field select:is(:focus) ~ .icon {
+  color: #320558;
+}
+.input-field select:is(:focus) {
+  border-bottom-color: #320558;
+}
+.input-field select {
+  border: none;
+  height: 100%;
+  width: 100%;
+  padding: 0 35px;
+  font-size: 16px;
+  outline: none;
+  border-bottom: 2px solid #ccc;
+  border-top: 2px solid transparent;
+  border-radius: 0px;
+  transition: all 0.2s ease-in;
+  border-bottom-color: #7e22ce;
+}
+/* select::before{
+  content:'Registration Duration'
 } */
-/* General styles for all screen sizes */
+.forgotPassword {
+  display: flex;
+  justify-content: end;
+}
+a {
+  text-decoration: none;
+  color: #7e22ce;
+}
+a:hover {
+  text-decoration: underline;
+}
+.button input {
+  border: none;
+  /* background-color: #6563FF; */
+  /* background:linear-gradient(90deg,#8684ec 0,#ff60f5 50%,#ffb68d 100%) ; */
+
+  letter-spacing: 1px;
+  font-size: 17px;
+  font-weight: 450;
+  background-color: #7e22ce;
+  color: white;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+.button input:hover {
+  /* background-color: #265df2; */
+  /* background:linear-gradient(90deg,#8684ec 0,#ff60f5 50%,#ffb68d 100%) ; */
+  background-color: #5f14a0;
+}
+
+.custom-marker img {
+  width: 60px; /* Adjust width as needed */
+  height: 60px; /* Adjust height as needed */
+}
+
+.login-signup {
+  text-align: center;
+}
+.restaurant-display-icon {
+  color: #7e22ce;
+}
+.card {
+  border: none;
+  padding: 5px;
+  margin: auto;
+  width: 85%;
+  min-height: 7vh;
+}
+.card img {
+  border-radius: 25px;
+}
+.card:hover{
+  cursor: pointer;
+  box-shadow: 0 0 20px #dddcdc;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+}
+.coupon{
+  background-color: #7e22ce;
+  color: white;
+}
+.coupon:hover{
+  background-color: #5f14a0;
+  color: white;
+}
+
 .note {
   background: #fff;
   border-radius: 7px;
@@ -189,6 +406,24 @@ form.create-note button {
 @media screen and (min-width: 992px) {
   .note {
     flex: 0 0 20%; /* 4 notes per row with some margin */
+  }
+}
+@media screen and (max-width: 900px) {
+  .eye {
+    left: 83%;
+  }
+  .login-container {
+    width: 60%;
+    
+  }
+}
+@media screen and (max-width: 786px) {
+  .eye {
+    left: 83%;
+  }
+  .login-container {
+    width: 97%;
+    
   }
 }
 
