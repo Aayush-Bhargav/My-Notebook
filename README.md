@@ -46,15 +46,15 @@ Install the packages for the back end using:
 cd My-Notebook/backend
 npm install
 ```
-Launch the backend :
+Launch the backend server:
 ```
 nodemon index.js
 ```
-Launch the frontend :
+Launch the frontend application:
 ```
 npm start
 ```
-
+Make sure mongo DB server is running on your localhost and listening on the default port 27017.
   
 ## Features
 
