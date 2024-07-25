@@ -24,6 +24,7 @@ router.post('/createUser', [
     body('email').isEmail().withMessage('Enter a valid email'),
     body('password').custom(isStrongPassword)
 ], async (req, res) => {
+    
     let success = false;
     // Validate the request
     const errors = validationResult(req);
@@ -97,7 +98,7 @@ body('password').exists().withMessage('Password cannot be blank!')
         const authtoken = jwt.sign(data, JWT_SECRET);
         success = true;
         console.log(authtoken);
-        return res.json({ success, authtoken });//this means user got saved successfully so you can send status code 200 
+        return res.json({ success, authtoken ,name:user.name});//this means user got saved successfully so you can send status code 200 
     }
     catch (err) {//means some error occured!
         console.log(err);
