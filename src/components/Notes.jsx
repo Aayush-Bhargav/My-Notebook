@@ -9,17 +9,23 @@ import "../App.css"
 //component to display all notes of a user
 export default function Notes() {
     let history = useNavigate();
-    const { fetchNotes, notes, display, editNote, addNote } = useContext(noteContext);
+    const { fetchNotes, notes, display, editNote, addNote ,user} = useContext(noteContext);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 if (localStorage.getItem('token'))
-                    await fetchNotes(); // Ensure fetchNotes updates contextValue.notes
+                    {
+                        console.log('token is present')
+                        const result=await fetchNotes(); // Ensure fetchNotes updates contextValue.notes
+                        if(!result)
+                            throw new Error('Invalid token')
+                    }
                 else
                     history("/login")
             } catch (error) {
-                console.error('Error fetching notes:', error);
+                console.error('You need to login before trying to access notes.Error fetching notes:', error);
+                history("/login");//Redirect to the login page
             }
         };
 
@@ -33,7 +39,7 @@ export default function Notes() {
             {display ? (<AddNote />) : (<EditNote />)}
             {/* Depending on the value of display, show AddNote or EditNote*/}
 
-            {notes.length>0?<h2 className='my-3 mt-5'>Your Notes</h2>:<h2 className='my-3 mt-5'>No Notes Added Yet.</h2>}
+            {notes.length>0?<h2 className='my-3 mt-5'>Welcome {user}! Your Notes</h2>:<h2 className='my-3 mt-5'>No Notes Added Yet.</h2>}
 
             {/* <div className='notes-container'> */}
             <div className='row my-3'>
