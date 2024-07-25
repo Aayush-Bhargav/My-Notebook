@@ -32,10 +32,29 @@ The Notes App is a full-featured MERN stack application designed for managing pe
 ![mobile view 1](screenshots/mobileView1.png)
 
 ## Install
-- Download all the files.
-- Run 'cd my-notebook' and then 'npm install' and then 'npm run start' to start the frontend.
-- Run 'cd my-notebook/backend' and then 'npm install' and then 'nodemon index.js' to get the server up and running.
-- Make sure mongo DB is also installed in your computer.
+Clone the repo using:
+```
+git clone https://github.com/Aayush-Bhargav/My-Notebook.git
+```
+Install the packages for the front end using:
+```
+cd My-Notebook
+npm install
+```
+Install the packages for the back end using:
+```
+cd My-Notebook/backend
+npm install
+```
+Launch the backend :
+```
+nodemon index.js
+```
+Launch the frontend :
+```
+npm start
+```
+
   
 ## Features
 
