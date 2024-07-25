@@ -4,17 +4,27 @@ import axios from 'axios';
 import NoteState from '../context/notes/NoteState';
 import noteContext from '../context/notes/noteContext';
 import { json, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { UilEnvelope } from '@iconscout/react-unicons'
+import { UilLock } from '@iconscout/react-unicons'
+import { UilEyeSlash } from '@iconscout/react-unicons'
+import { UilEye } from '@iconscout/react-unicons'
+import { UilUser } from '@iconscout/react-unicons';
 //sign up component
 export default function Login() {
   // Set default headers for Axios to send JSON content
   axios.defaults.headers.common['Content-Type'] = 'application/json';
   const { displayAlert } = useContext(noteContext);
   let history = useNavigate();
-
+  const[show,setShow]=useState(false);
+  const toggleShow = () => {//for showing or hiding the password
+    setShow(!show);
+}
   const host = "http://localhost:5000"
   const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
   async function createUser(name, email, password) {//function to add a note USING our backend api
     let response;
+    console.log(name,email,password)
     try {
       response = await axios.post(`${host}/api/auth/createUser`, { name, email, password }, {
         headers: {
@@ -29,7 +39,7 @@ export default function Login() {
       localStorage.setItem('token', response.data.authtoken);
       history("/");
     } catch (error) {
-      displayAlert("Couldn't Sign Up. Try again.", 'danger');
+      displayAlert("Couldn't Sign Up. Use a stronger password(Atleast 1 uppercase,1 lowercase, 1 number). Try again.", 'danger');
       console.error('Error posting data:', error.response);
     }
   }
@@ -49,32 +59,51 @@ export default function Login() {
     });
   }
   return (
-    <div className='container my-3'>
-     <h2 className='my-3' style={{textAlign:"center"}}>Create your MyNotebook Account Today!</h2>
-      <form onSubmit={handleSubmit} col-sm-12 col-8>
-        <div className="mb-3">
-          <label for="name" className="form-label">Name</label>
-          <input type="text" name="name" className="form-control" id="name" onChange={handleChange} value={credentials.name} required minLength={5} />
-        </div>
-        <div className="mb-3">
-          <label for="email" className="form-label">Email address</label>
-          <input type="email" name="email" className="form-control" id="email" aria-describedby="emailHelp" onChange={handleChange} value={credentials.email} required minLength={5} />
-          <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div className="mb-3">
-          <label for="password" name="password" className="form-label">Password</label>
-          <input type="password" name="password" className="form-control" id="password" onChange={handleChange} value={credentials.password} required minLength={8} />
-        </div>
-        <div className="mb-3">
-          <label for="cpassword" name="cpassword" className="form-label">Confirm Password</label>
-          <input type="password" name="cpassword" className="form-control" id="cpassword" onChange={handleChange} value={credentials.cpassword} required minLength={8} />
-        </div>
-        {/* <div className="mb-3 form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                    <label className="form-check-label" for="exampleCheck1">Check me out</label>
-                </div> */}
-        <button type="submit" className="btn btn-primary" >Submit</button>
-      </form>
-    </div>
+    <>
+    <div style={{ minHeight: "80vh" ,display:"flex",alignItems:"center"}}>
+                <div className='login-container my-5' >
+                    <div className='forms'>
+                        <div className='form login'>
+                            <span className='poppins-semibold title '>Register To MyNotebook</span>
+                            <form onSubmit={handleSubmit} col-sm-12 col-8>
+                            <div className="input-field">
+                                    <input type="name" name="name" placeholder="Enter your name" id="name"  onChange={handleChange} value={credentials.name} required minLength={3} /><UilUser className="icon" />
+                                </div>
+                                <div className="input-field">
+                                    <input type="email" name="email" placeholder="Enter your email" id="email" aria-describedby="emailHelp" onChange={handleChange} value={credentials.email} required minLength={5} /><UilEnvelope className="icon" />
+                                </div>
+                                <div className="input-field">
+                                    <input type={show ? "text" : "password"} name="password" placeholder="Enter your password" id="password" onChange={handleChange} value={credentials.password} required minLength={8} /><UilLock className="icon" />
+                                    {!show && <UilEyeSlash className='eye' onClick={() => {
+                                        toggleShow();
+                                    }} />}
+                                    {show && <UilEye className='eye' onClick={() => {
+                                        toggleShow();
+                                    }} />}
+                                </div>
+                                <div className="input-field">
+                                    <input type={show ? "text" : "password"} name="cpassword" placeholder="Confirm your password" id="cpassword" onChange={handleChange} value={credentials.cpassword} required minLength={8} /><UilLock className="icon" />
+                                    {!show && <UilEyeSlash className='eye' onClick={() => {
+                                        toggleShow();
+                                    }} />}
+                                    {show && <UilEye className='eye' onClick={() => {
+                                        toggleShow();
+                                    }} />}
+                                </div>
+                                <div className='input-field button'>
+                                    <input type="submit" value="Register" />
+                                </div>
+                            </form>
+                            <div className='login-signup'>
+                                <span className='text'>Already have an account?<NavLink to="/login" className='text signup-text'> Login Now</NavLink>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    </>
   )
 }
